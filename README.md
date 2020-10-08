@@ -1,5 +1,5 @@
 # desafio-upper
-Desafio Upper Rest Api C# e React
+Desafio Upper Rest Api C#
 
 #Backend
 * Para subir o ambiente é necessário o docker instalado, na pasta backend foi criado o arquivo docker-compose com a imagem do SQLSERVER, para subir basta digitar o comando 
