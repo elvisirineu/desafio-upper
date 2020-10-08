@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  #webapi:
+  #  image: Upper.Desafio.Api
+  #  build:
+  #    dockerfile: src/Upper.Desafio.Api/Dockerfile
+  # 
+  #  depends_on:
+  #    - sqlserver.database
+
+  sqlserver.database:
+    image: microsoft/mssql-server-linux:latest
+    container_name: sql-server
+    environment:
+        SA_PASSWORD: "upper.desafio@123"
+        ACCEPT_EULA: "Y"
+    ports:
+         - "1435:1433"
