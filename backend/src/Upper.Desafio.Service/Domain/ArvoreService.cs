@@ -29,15 +29,12 @@ namespace Upper.Desafio.Service.Domain
         {
             try
             {
+                var oArvore = _mapper.Map<Arvore>(arvore);
                 if (isValid(arvore))
                 {
-                    var oArvore = _mapper.Map<Arvore>(arvore);
-
-                    _repository.Insert(oArvore);
-
-                    _unitOfWork.SaveChanges();
+                    base.Insert(oArvore);
                 }
-                return arvore;
+                return _mapper.Map<ArvoreViewModel>(oArvore); ;
             }
             catch (Exception ex)
             {

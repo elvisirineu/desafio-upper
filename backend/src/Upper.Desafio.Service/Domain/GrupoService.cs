@@ -32,11 +32,10 @@ namespace Upper.Desafio.Service.Domain
         {
             try
             {
-                var oGrupo = new Grupo(grupo.Id, grupo.Nome, grupo.Descricao);
+                var oGrupo = _mapper.Map<Grupo>(grupo);
 
                 if (isValid(grupo))
                 {
-
                     _repository.Insert(oGrupo);
 
                     foreach (var item in grupo.Arvores)

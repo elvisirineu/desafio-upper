@@ -29,15 +29,12 @@ namespace Upper.Desafio.Service.Domain
         {
             try
             {
+                var oEspecie = _mapper.Map<Especie>(especie);
                 if (isValid(especie))
                 {
-                    var oEspecie = _mapper.Map<Especie>(especie);
-
-                    _repository.Insert(oEspecie);
-
-                    _unitOfWork.SaveChanges();
+                    base.Insert(oEspecie);
                 }
-                return especie;
+                return _mapper.Map<EspecieViewModel>(oEspecie);
             }
             catch (Exception ex)
             {

@@ -37,21 +37,19 @@ namespace Upper.Desafio.Service.Domain
         {
             try
             {
+                var oColheita = _mapper.Map<Colheita>(colheita);
                 if (isValid(colheita))
                 {
-                    var oColheita = new Colheita(colheita.Id, colheita.Informacao, colheita.Data, colheita.PesoBruto);
-
                     _repository.Insert(oColheita);
                     foreach (var item in colheita.Arvores)
                     {
                         var oColheitaArvore = new ColheitaArvore(item.Id, oColheita.Id);
                         _colheitaArvoreRepository.Insert(oColheitaArvore);
                     }
-
                     _unitOfWork.SaveChanges();
                 }
 
-                return colheita;
+                return _mapper.Map<ColheitaViewModel>(oColheita);
             }
             catch (Exception ex)
             {
